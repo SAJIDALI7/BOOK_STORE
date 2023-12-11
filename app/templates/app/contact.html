@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Contact me {% endblock title %}
+{% block main-content %}
+<div class="container fs-5 mt-5">
+            <form method="post" action="{% url 'email' %}">
+                 {% csrf_token %}
+                   <div class="mb-3">
+                     <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                     <input type="text" class="form-control" name="email" id="exampleFormControlInput1">
+                   </div>
+                   <div class="mb-3">
+                     <label for="exampleInputSubject" class="form-label">Subject</label>
+                     <input type="text" class="form-control" name="subject" id="exampleInputSubject">
+                   </div>
+                   <div class="mb-3">
+                     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                     <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
+                   </div>
+                   <button type="submit" class="btn btn-primary w-50 justify-item-between">Send</button>
+            </form>
+        </div>
+{% endblock main-content %}
